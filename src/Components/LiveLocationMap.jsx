@@ -35,14 +35,14 @@ const LiveLocationMap = () => {
   return (
     <div
       style={{
-        height: 240,
+        height: 180,
         width: "100%",
         maxWidth: 420,
-        margin: "18px auto",
-        borderRadius: 12,
+        margin: "12px auto",
+        borderRadius: 10,
         boxShadow: "0 2px 8px rgba(33,147,176,0.10)",
         background: "rgba(255,255,255,0.10)",
-        padding: 6,
+        padding: 2,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -58,9 +58,9 @@ const LiveLocationMap = () => {
         zoom={15}
         scrollWheelZoom={true}
         style={{
-          height: 200,
+          height: 140,
           width: "100%",
-          borderRadius: 10,
+          borderRadius: 8,
           maxWidth: "100vw",
           minWidth: 0,
         }}

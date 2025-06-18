@@ -70,6 +70,17 @@
     box-sizing: border-box;
     font-size: 0.93rem;
   }
+  .dashboardTitle {
+    font-size: 1rem;
+  }
+  .dashboardLogout {
+    width: 100%;
+    font-size: 0.93rem;
+    padding: 8px 0;
+    min-height: 32px;
+    height: 36px;
+    border-radius: 8px;
+  }
   .dashboardLeft,
   .dashboardRight {
     min-width: 0;
