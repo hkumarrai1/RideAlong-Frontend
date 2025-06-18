@@ -1,0 +1,240 @@
+/* Auth.module.css */
+
+.container {
+  width: 100%;
+  max-width: 340px;
+  margin: 2.5rem auto;
+  background: rgba(
+    255,
+    255,
+    255,
+    0.18
+  ); /* Transparent white for glass effect */
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(255, 0, 0, 0.12);
+  padding: 1.5rem 1.2rem;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+  font-family: "Segoe UI", sans-serif;
+  backdrop-filter: blur(10px); /* Glassmorphism effect */
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.formContainer {
+  position: relative;
+  transition: all 0.4s ease;
+  /* Add perspective for 3D effect */
+  perspective: 800px;
+}
+
+/* Remove spinning effect and add flip effect */
+@keyframes flipUp {
+  0% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: rotateX(-90deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: rotateX(-180deg);
+    opacity: 1;
+  }
+}
+
+@keyframes flipDown {
+  0% {
+    transform: rotateX(-180deg);
+    opacity: 1;
+  }
+  50% {
+    transform: rotateX(-90deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+.showLogin {
+  animation: flipDown 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  backface-visibility: hidden;
+}
+
+.showSignUp {
+  animation: flipUp 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  backface-visibility: hidden;
+}
+
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.toggleButton {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 8px;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(to right, #ff4b2b, #ff416c);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(255, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+.toggleButton:hover {
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  transform: scale(1.03);
+}
+
+/* Optional: Smooth fade in on component load */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.container {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Mobile Responsive */
+@media (max-width: 500px) {
+  .container {
+    width: 98%;
+    padding: 0.7rem;
+    margin: 1.2rem auto;
+  }
+
+  .toggleButton {
+    font-size: 0.9rem;
+    padding: 7px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 98vw;
+    padding: 0.7rem;
+    margin: 1.2rem auto;
+    min-width: 0;
+  }
+  .formContainer {
+    min-width: 0;
+  }
+  .toggleButton {
+    font-size: 1rem;
+    padding: 8px;
+    border-radius: 10px;
+  }
+  .header {
+    margin-bottom: 0.7rem;
+  }
+  .title {
+    font-size: 1.1rem;
+  }
+  .motto {
+    font-size: 0.95rem;
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 1.1rem;
+}
+
+.title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #ff3c3c;
+  margin: 0;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(255, 75, 43, 0.18), 0 1px 0 #fff;
+}
+
+.motto {
+  font-size: 0.95rem;
+  color: #ff416c;
+  margin-top: 0.2rem;
+  font-style: italic;
+  font-weight: 700;
+  text-shadow: 0 1px 6px #fff;
+}
+
+/* Input Field Styling */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 0.5rem 0 1rem;
+  border: 2px solid #ffcccc;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  font-size: 1rem;
+  color: #333;
+  outline: none;
+  transition: 0.3s ease;
+  box-shadow: 0 3px 6px rgba(255, 0, 0, 0.1);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #ff4b2b;
+  box-shadow: 0 0 0 3px rgba(255, 75, 43, 0.2);
+}
+
+/* Placeholder Styling */
+input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+/* Submit Button */
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(to right, #ff4b2b, #ff416c);
+  color: #fff;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 65, 108, 0.3);
+}
+
+button[type="submit"]:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 18px rgba(255, 65, 108, 0.4);
+}
+
+.bg {
+  min-height: 100vh;
+  width: 100vw;
+  background: url("../RideAlongBg.png") no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

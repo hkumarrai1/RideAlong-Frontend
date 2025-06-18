@@ -1,0 +1,275 @@
+.formWrapper {
+  position: relative;
+  max-width: 340px;
+  margin: 0 auto;
+  padding: 1.5rem 1.2rem;
+  border-radius: 14px;
+  background: rgba(
+    255,
+    255,
+    255,
+    0.18
+  ); /* Transparent white for glass effect */
+  box-shadow: 0 6px 18px rgba(255, 0, 0, 0.12);
+  animation: fadeIn 0.5s ease-in-out;
+  backdrop-filter: blur(10px); /* Glassmorphism effect */
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.brand {
+  font-size: 1.3rem;
+  color: #ff3c3c;
+  text-align: center;
+  margin-bottom: 0.3rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(255, 75, 43, 0.18), 0 1px 0 #fff;
+}
+
+.heading {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  color: #ff3c3c;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 8px rgba(255, 75, 43, 0.18), 0 1px 0 #fff;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.inputGroup {
+  position: relative;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.inputGroup input {
+  width: 100%;
+  min-width: 0;
+  padding: 8px 10px 8px 38px; /* Increased left padding for icon spacing */
+  font-size: 0.95rem;
+  border-radius: 8px;
+  box-sizing: border-box;
+  margin: 0;
+  border: 2px solid #ffcccc;
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.inputGroup input:focus {
+  border-color: #ff416c;
+  box-shadow: 0 0 0 3px rgba(255, 65, 108, 0.2);
+}
+
+.inputGroup label {
+  position: absolute;
+  left: 8px; /* Add padding from the left edge */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.95rem;
+  color: #999;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.inputGroup input:focus + label,
+.inputGroup input:not(:placeholder-shown) + label {
+  top: -8px;
+  font-size: 0.7rem;
+  background: white;
+  padding: 0 4px;
+  color: #ff416c;
+  left: 8px; /* Float label stays left-aligned with padding */
+}
+
+.icon {
+  position: absolute;
+  left: 10px; /* Keep icon near left edge */
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ff416c;
+  font-size: 0.95rem;
+}
+
+.error {
+  color: #ff2e2e;
+  font-size: 0.95rem;
+  text-align: center;
+  margin-bottom: 0.7rem; /* Increased gap below error */
+  font-weight: 700;
+  text-shadow: 0 1px 6px #fff;
+}
+
+/* Submit Button */
+button[type="submit"] {
+  width: auto;
+  min-width: 90px;
+  max-width: 160px;
+  display: block;
+  margin: 0.3rem auto 0.2rem auto;
+  padding: 7px 0;
+  font-size: 0.97rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(to right, #ff4b2b, #ff416c);
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 5px 15px rgba(255, 65, 108, 0.18);
+  letter-spacing: 0.5px;
+}
+
+button[type="submit"]:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 18px rgba(255, 65, 108, 0.28);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* SocialMedia.jsx css */
+.socialMediaContainer {
+  text-align: center;
+  margin: 1.1rem 0 0.7rem 0;
+}
+.socialMediaTitle {
+  font-weight: 700;
+  color: #555;
+  margin-bottom: 0.7rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.2px;
+}
+.socialMediaButtons {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+.socialMediaBtn {
+  background: #fff;
+  border: 2px solid #eee;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: box-shadow 0.2s, border-color 0.2s;
+  outline: none;
+}
+.socialMediaBtn:active,
+.socialMediaBtn:focus {
+  border-color: #ff416c;
+  box-shadow: 0 4px 16px rgba(255, 65, 108, 0.15);
+}
+.socialMediaBtn .fa-google {
+  color: #ea4335;
+  font-size: 16px;
+}
+.socialMediaBtn .fa-facebook-f {
+  color: #1877f3;
+  font-size: 16px;
+}
+.socialMediaUser {
+  margin-top: 1rem;
+  color: #333;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 500px) {
+  .formWrapper {
+    max-width: 98vw;
+    padding: 0.7rem;
+  }
+  .inputGroup {
+    gap: 0.3rem;
+    margin-bottom: 0.35rem;
+  }
+  .inputGroup input {
+    font-size: 0.9rem;
+    padding: 7px 8px 7px 32px;
+  }
+}
+.forgotLink {
+  text-align: right;
+  color: #ff3c3c;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.forgotLink:hover {
+  color: #ff1a1a;
+}
+
+@media (max-width: 600px) {
+  .formWrapper {
+    max-width: 98vw;
+    padding: 0.7rem;
+    min-width: 0;
+  }
+  .heading {
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+  }
+  .inputGroup {
+    gap: 0.3rem;
+    margin-bottom: 0.35rem;
+    min-width: 0;
+  }
+  .inputGroup input {
+    font-size: 1rem;
+    padding: 10px 8px 10px 32px;
+    min-width: 0;
+  }
+  .icon {
+    font-size: 1.1rem;
+    left: 8px;
+  }
+  button[type="submit"] {
+    min-width: 80px;
+    max-width: 100%;
+    font-size: 1.05rem;
+    padding: 10px 0;
+    border-radius: 10px;
+  }
+  .error {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .socialMediaContainer {
+    margin: 0.7rem 0 0.5rem 0;
+  }
+  .socialMediaBtn {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+  .forgotLink {
+    font-size: 1rem;
+    margin-top: 0.3rem;
+  }
+}
