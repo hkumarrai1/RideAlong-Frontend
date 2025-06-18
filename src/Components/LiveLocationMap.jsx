@@ -35,26 +35,35 @@ const LiveLocationMap = () => {
   return (
     <div
       style={{
-        height: 320,
+        height: 240,
         width: "100%",
-        maxWidth: 560,
-        margin: "32px auto",
-        borderRadius: 16,
-        boxShadow: "0 4px 18px rgba(255,0,0,0.10)",
-        background: "rgba(255,255,255,0.12)",
-        padding: 10,
+        maxWidth: 420,
+        margin: "18px auto",
+        borderRadius: 12,
+        boxShadow: "0 2px 8px rgba(33,147,176,0.10)",
+        background: "rgba(255,255,255,0.10)",
+        padding: 6,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         boxSizing: "border-box",
         overflow: "hidden",
+        touchAction: "none",
+        userSelect: "none",
+        fontSize: "0.93rem",
       }}
     >
       <MapContainer
         center={position || [20, 77]}
         zoom={15}
         scrollWheelZoom={true}
-        style={{ height: 300, width: "100%", borderRadius: 12, maxWidth: "100vw", minWidth: 0 }}
+        style={{
+          height: 200,
+          width: "100%",
+          borderRadius: 10,
+          maxWidth: "100vw",
+          minWidth: 0,
+        }}
       >
         <TileLayer
           url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"

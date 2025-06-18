@@ -18,6 +18,7 @@
   font-family: "Segoe UI", sans-serif;
   backdrop-filter: blur(10px); /* Glassmorphism effect */
   -webkit-backdrop-filter: blur(10px);
+  font-size: 0.97rem;
 }
 
 .formContainer {
@@ -83,7 +84,7 @@
   margin-top: 1rem;
   width: 100%;
   padding: 8px;
-  font-size: 0.95rem;
+  font-size: 0.93rem;
   border: none;
   border-radius: 8px;
   background: linear-gradient(to right, #ff4b2b, #ff416c);
@@ -135,12 +136,13 @@
     padding: 0.7rem;
     margin: 1.2rem auto;
     min-width: 0;
+    font-size: 0.93rem;
   }
   .formContainer {
     min-width: 0;
   }
   .toggleButton {
-    font-size: 1rem;
+    font-size: 0.9rem;
     padding: 8px;
     border-radius: 10px;
   }
@@ -148,10 +150,10 @@
     margin-bottom: 0.7rem;
   }
   .title {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   .motto {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -161,7 +163,7 @@
 }
 
 .title {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 800;
   color: #ff3c3c;
   margin: 0;
@@ -170,7 +172,7 @@
 }
 
 .motto {
-  font-size: 0.95rem;
+  font-size: 0.93rem;
   color: #ff416c;
   margin-top: 0.2rem;
   font-style: italic;
