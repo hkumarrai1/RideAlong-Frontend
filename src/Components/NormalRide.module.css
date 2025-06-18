@@ -1,30 +1,39 @@
 .normalRideContainer {
   position: relative;
-  width: fit-content;
+  width: 100%; /* Make container full width */
+  max-width: 420px; /* Limit max width for desktop */
   margin: 0 auto;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(33, 147, 176, 0.1);
+  padding: 24px 18px 32px 18px;
+  box-sizing: border-box;
 }
 
 .inputWrapper {
   position: relative;
   width: 100%;
+  margin-bottom: 18px;
 }
 
 .normalRideInput {
-  min-width: 320px;
-  padding-right: 40px;
-  padding: 10px 16px;
+  width: 100%;
+  min-width: 0;
+  padding: 14px 16px;
   border-radius: 12px;
-  border: 1px solid #b0bec5;
-  font-size: 1rem;
+  border: 1.5px solid #b0bec5;
+  font-size: 1.08rem;
   background: rgba(255, 255, 255, 0.7);
   box-shadow: 0 2px 16px 0 rgba(33, 147, 176, 0.08);
   outline: none;
   transition: border 0.2s, box-shadow 0.2s;
   position: relative;
   z-index: 2;
+  box-sizing: border-box;
+  margin: 0;
 }
 .normalRideInput:focus {
-  border: 1.5px solid #2193b0;
+  border: 2px solid #2193b0;
   box-shadow: 0 4px 24px 0 rgba(33, 147, 176, 0.12);
 }
 
@@ -88,37 +97,26 @@
 @media (max-width: 600px) {
   .normalRideContainer {
     width: 100vw;
+    max-width: 100vw;
     min-width: 0;
-    padding: 0 2vw;
+    padding: 0 2vw 18vw 2vw;
     margin: 0 auto;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
   }
   .inputWrapper {
     width: 100%;
     min-width: 0;
+    margin-bottom: 12px;
   }
   .normalRideInput {
     min-width: 0;
     width: 100%;
-    font-size: 1.1rem;
+    font-size: 1.08rem;
     padding: 14px 10px;
     margin-top: 12px;
     box-sizing: border-box;
-  }
-  .searchRideBtn {
-    font-size: 1.1rem;
-    padding: 16px 0;
-    width: 100%;
-    border-radius: 12px;
-  }
-  .suggestionList {
-    font-size: 1rem;
-    max-height: 180px;
-  }
-  .suggestionItem {
-    padding: 16px 12px;
-    font-size: 1.05rem;
-  }
-  .normalRideLoaderOverlay {
-    padding: 0;
+    border-radius: 10px;
   }
 }
