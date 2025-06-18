@@ -18,6 +18,8 @@
   flex-direction: column;
   align-items: flex-start;
   min-width: 320px;
+  max-width: 100%; /* Prevent overflow */
+  box-sizing: border-box;
 }
 .dashboardRight {
   flex: 1 1 0;
@@ -25,6 +27,8 @@
   flex-direction: column;
   align-items: flex-end;
   min-width: 320px;
+  max-width: 100%; /* Prevent overflow */
+  box-sizing: border-box;
 }
 .dashboardTitle {
   color: #ff3c3c;
@@ -64,6 +68,8 @@
     width: 100%;
     align-items: stretch;
     padding: 0;
+    max-width: 100vw;
+    box-sizing: border-box;
   }
   .dashboardTitle {
     font-size: 1.1rem;

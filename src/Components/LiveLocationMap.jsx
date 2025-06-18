@@ -46,13 +46,15 @@ const LiveLocationMap = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        boxSizing: "border-box",
+        overflow: "hidden",
       }}
     >
       <MapContainer
         center={position || [20, 77]}
         zoom={15}
         scrollWheelZoom={true}
-        style={{ height: 300, width: "100%", borderRadius: 12 }}
+        style={{ height: 300, width: "100%", borderRadius: 12, maxWidth: "100vw", minWidth: 0 }}
       >
         <TileLayer
           url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
