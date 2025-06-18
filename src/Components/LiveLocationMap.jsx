@@ -35,14 +35,14 @@ const LiveLocationMap = () => {
   return (
     <div
       style={{
-        height: 180,
+        height: 340, // Larger for desktop
         width: "100%",
-        maxWidth: 420,
-        margin: "12px auto",
-        borderRadius: 10,
-        boxShadow: "0 2px 8px rgba(33,147,176,0.10)",
-        background: "rgba(255,255,255,0.10)",
-        padding: 2,
+        maxWidth: 540, // Wider for desktop
+        margin: "32px auto",
+        borderRadius: 16,
+        boxShadow: "0 4px 18px rgba(255,0,0,0.10)",
+        background: "rgba(255,255,255,0.12)",
+        padding: 10,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -50,7 +50,7 @@ const LiveLocationMap = () => {
         overflow: "hidden",
         touchAction: "none",
         userSelect: "none",
-        fontSize: "0.93rem",
+        fontSize: "0.97rem",
       }}
     >
       <MapContainer
@@ -58,9 +58,9 @@ const LiveLocationMap = () => {
         zoom={15}
         scrollWheelZoom={true}
         style={{
-          height: 140,
+          height: 320,
           width: "100%",
-          borderRadius: 8,
+          borderRadius: 14,
           maxWidth: "100vw",
           minWidth: 0,
         }}
