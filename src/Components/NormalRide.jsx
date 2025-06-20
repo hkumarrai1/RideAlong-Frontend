@@ -4,7 +4,7 @@ import Loading from "./Loading";
 import styles from "./NormalRide.module.css";
 import fetchLatLonFromAddress from "../../utility/fetchLatLonFromAddress";
 
-const NormalRide = () => {
+const NormalRide = ({ setRideOptions }) => {
   const [CurrentLocation, setCurrentLocation] = useState("");
   const [destination, setDestination] = useState("");
   const [error, setError] = useState("");
@@ -30,7 +30,7 @@ const NormalRide = () => {
         currentLocation: currentLocCoords,
         destination: destCoords,
       });
-      console.log(response);
+      setRideOptions(response.data.options || []);
       setLoading(false);
     } catch (error) {
       setLoading(false);

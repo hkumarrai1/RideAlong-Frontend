@@ -12,6 +12,7 @@ import {
   sendPasswordResetEmail,
 } from "firebase/auth";
 import app from "./firebase";
+import axiosInstance from "./axiosInstance";
 
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
@@ -41,8 +42,14 @@ export function AuthProvider({ children }) {
       const user = userCredential.user;
 
       await sendEmailVerification(user);
-      alert("Verification email sent! Please check your inbox.");
-
+      alert(
+        "Verification email sent! Please check your inbox and spam folder."
+      );
+      const uid = user.uid;
+      await axiosInstance.post("/user/register", {
+        firebaseUID: uid,
+        email: user.email,
+      });
       return userCredential;
     } catch (error) {
       return { error: error.message };

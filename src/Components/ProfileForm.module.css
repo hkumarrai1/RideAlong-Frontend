@@ -1,0 +1,61 @@
+.profileForm {
+  max-width: 340px;
+  margin: 32px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(33, 147, 176, 0.1);
+  padding: 24px 18px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2193b0;
+  text-align: center;
+  margin-bottom: 8px;
+}
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.inputGroup label {
+  font-size: 0.97rem;
+  color: #555;
+  margin-bottom: 2px;
+}
+.inputGroup input,
+.inputGroup select {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #b0bec5;
+  font-size: 0.97rem;
+  background: #f9f9f9;
+}
+.inputGroup input[readonly] {
+  background: #eee;
+  color: #888;
+}
+.error {
+  color: #e53935;
+  font-size: 0.95rem;
+  text-align: center;
+  margin-bottom: 8px;
+}
+.submitBtn {
+  padding: 10px 0;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #2193b0 0%, #6dd5ed 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+.submitBtn:hover {
+  background: linear-gradient(90deg, #6dd5ed 0%, #2193b0 100%);
+}

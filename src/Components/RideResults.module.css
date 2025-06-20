@@ -1,0 +1,132 @@
+.rideResultsContainer {
+  width: 100%;
+  max-width: 540px;
+  margin: 24px auto 0 auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(33, 147, 176, 0.1);
+  padding: 18px 12px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.title {
+  color: #2193b0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.rideList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+  width: 100%;
+}
+.rideCard {
+  background: #f8fafd;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(33, 147, 176, 0.07);
+  padding: 16px 18px;
+  min-width: 120px;
+  max-width: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: box-shadow 0.2s;
+}
+.rideCard:hover {
+  box-shadow: 0 4px 16px rgba(33, 147, 176, 0.13);
+}
+.rideType {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #2193b0;
+}
+.rideAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #e3f2fd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 6px 0;
+}
+.avatarImg {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+.rideFare {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #43a047;
+  margin-bottom: 4px;
+}
+.bookBtn {
+  background: linear-gradient(90deg, #2193b0 0%, #6dd5ed 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 0;
+  width: 100%;
+  font-size: 0.97rem;
+  font-weight: 600;
+  cursor: not-allowed;
+  opacity: 0.7;
+  margin-top: 4px;
+}
+@media (max-width: 900px) {
+  .rideResultsContainer {
+    max-width: 98vw;
+    padding: 12px 2vw 10px 2vw;
+  }
+  .rideList {
+    gap: 12px;
+  }
+  .rideCard {
+    min-width: 100px;
+    max-width: 140px;
+    padding: 12px 8px;
+    font-size: 0.97rem;
+  }
+  .avatarImg {
+    width: 32px;
+    height: 32px;
+  }
+}
+@media (max-width: 600px) {
+  .rideResultsContainer {
+    max-width: 99vw;
+    padding: 8px 1vw 6px 1vw;
+  }
+  .rideList {
+    gap: 8px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .rideCard {
+    min-width: 90px;
+    max-width: 98vw;
+    width: 100%;
+    padding: 8px 4px;
+    font-size: 0.95rem;
+  }
+  .rideType {
+    font-size: 0.97rem;
+  }
+  .rideFare {
+    font-size: 1rem;
+  }
+  .avatarImg {
+    width: 28px;
+    height: 28px;
+  }
+  .bookBtn {
+    font-size: 0.95rem;
+    padding: 6px 0;
+  }
+}

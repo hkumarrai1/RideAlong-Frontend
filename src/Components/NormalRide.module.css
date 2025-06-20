@@ -97,13 +97,26 @@
   z-index: 9999;
 }
 
+@media (max-width: 900px) {
+  .normalRideContainer {
+    max-width: 98vw;
+    padding: 10px 2vw 10px 2vw;
+  }
+  .normalRideInput {
+    font-size: 0.97rem;
+    padding: 8px 8px;
+  }
+  .searchRideBtn {
+    font-size: 0.97rem;
+    padding: 8px 0;
+  }
+}
 @media (max-width: 600px) {
   .normalRideContainer {
     width: 100vw;
     max-width: 100vw;
     min-width: 0;
     padding: 0 1vw 10vw 1vw;
-    margin: 0 auto;
     border-radius: 0;
     box-shadow: none;
     background: transparent;
