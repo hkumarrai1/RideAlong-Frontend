@@ -26,7 +26,7 @@ const NormalRide = ({ setRideOptions }) => {
         setLoading(false);
         return;
       }
-      const response = await axiosInstance.post("/api/rides/bookRide", {
+      const response = await axiosInstance.post("/rides/bookRide", {
         currentLocation: currentLocCoords,
         destination: destCoords,
       });

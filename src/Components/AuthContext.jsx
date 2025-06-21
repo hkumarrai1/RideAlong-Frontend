@@ -46,7 +46,7 @@ export function AuthProvider({ children }) {
         "Verification email sent! Please check your inbox and spam folder."
       );
       const uid = user.uid;
-      await axiosInstance.post("/api/user/register", {
+      await axiosInstance.post("/user/register", {
         firebaseUID: uid,
         email: user.email,
       });
