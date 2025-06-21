@@ -24,7 +24,7 @@ function Dashboard() {
       if (!currentUser) return;
       try {
         const res = await axiosInstance.get(
-          `/user/profile-status?firebaseUID=${currentUser.uid}`
+          `/api/user/profile-status?firebaseUID=${currentUser.uid}`
         );
         setProfileComplete(res.data.profileComplete);
       } catch {
