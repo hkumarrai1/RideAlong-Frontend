@@ -204,7 +204,13 @@ function Dashboard() {
           </div>
           {/* RideResults centered below the two columns */}
           {rideOptions && rideOptions.length > 0 && (
-            <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
+            <div
+              style={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
               <RideResults options={rideOptions} />
             </div>
           )}
