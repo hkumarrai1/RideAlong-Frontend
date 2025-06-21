@@ -4,9 +4,9 @@ import Loading from "./Loading";
 import styles from "./NormalRide.module.css";
 import fetchLatLonFromAddress from "../../utility/fetchLatLonFromAddress";
 
-const NormalRide = ({ setRideOptions }) => {
-  const [CurrentLocation, setCurrentLocation] = useState("");
-  const [destination, setDestination] = useState("");
+const NormalRide = ({ setRideOptions, setCurrentLocation, setDestination }) => {
+  const [CurrentLocation, _setCurrentLocation] = useState("");
+  const [destination, _setDestination] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [suggestions, setSuggestions] = useState([]);
@@ -46,17 +46,26 @@ const NormalRide = ({ setRideOptions }) => {
       const response = await fetch(url);
       const data = await response.json();
       if (data.features && data.features.length > 0) {
-        setCurrentLocation(
+        _setCurrentLocation(
           data.features[0].properties.formatted ||
             data.features[0].properties.address_line1 ||
             data.features[0].properties.city ||
             "Address not found"
         );
+        if (setCurrentLocation)
+          setCurrentLocation(
+            data.features[0].properties.formatted ||
+              data.features[0].properties.address_line1 ||
+              data.features[0].properties.city ||
+              "Address not found"
+          );
       } else {
-        setCurrentLocation("Address not found");
+        _setCurrentLocation("Address not found");
+        if (setCurrentLocation) setCurrentLocation("Address not found");
       }
     } catch (err) {
-      setCurrentLocation("Error fetching address");
+      _setCurrentLocation("Error fetching address");
+      if (setCurrentLocation) setCurrentLocation("Error fetching address");
     } finally {
       setLoading(false);
     }
@@ -97,7 +106,8 @@ const NormalRide = ({ setRideOptions }) => {
 
   const handleInputChange = (e) => {
     const value = e.target.value;
-    setCurrentLocation(value);
+    _setCurrentLocation(value);
+    if (setCurrentLocation) setCurrentLocation(value);
     setSuggestions([]);
     setFocusedInput("current"); // Ensure suggestions show on typing
     if (debounceRef.current) clearTimeout(debounceRef.current);
@@ -108,7 +118,8 @@ const NormalRide = ({ setRideOptions }) => {
 
   const handleDestinationChange = (e) => {
     const value = e.target.value;
-    setDestination(value);
+    _setDestination(value);
+    if (setDestination) setDestination(value);
     setDestinationSuggestions([]);
     setFocusedInput("destination"); // Ensure suggestions show on typing
     if (destinationDebounceRef.current)
@@ -120,22 +131,24 @@ const NormalRide = ({ setRideOptions }) => {
 
   // Handle suggestion click
   const handleSuggestionClick = (suggestion) => {
-    setCurrentLocation(
+    const value =
       suggestion.properties.formatted ||
-        suggestion.properties.address_line1 ||
-        suggestion.properties.city ||
-        ""
-    );
+      suggestion.properties.address_line1 ||
+      suggestion.properties.city ||
+      "";
+    _setCurrentLocation(value);
+    if (setCurrentLocation) setCurrentLocation(value);
     setSuggestions([]);
   };
 
   const handleDestinationSuggestionClick = (suggestion) => {
-    setDestination(
+    const value =
       suggestion.properties.formatted ||
-        suggestion.properties.address_line1 ||
-        suggestion.properties.city ||
-        ""
-    );
+      suggestion.properties.address_line1 ||
+      suggestion.properties.city ||
+      "";
+    _setDestination(value);
+    if (setDestination) setDestination(value);
     setDestinationSuggestions([]);
   };
 
