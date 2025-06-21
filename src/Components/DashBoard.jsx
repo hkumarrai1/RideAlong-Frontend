@@ -18,6 +18,8 @@ function Dashboard() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showOutlet, setShowOutlet] = useState(false);
   const [rideOptions, setRideOptions] = useState([]);
+  const [currentLocation, setCurrentLocation] = useState("");
+  const [destination, setDestination] = useState("");
 
   useEffect(() => {
     async function checkProfile() {
@@ -196,24 +198,33 @@ function Dashboard() {
               <button onClick={handleLogout} className={styles.dashboardLogout}>
                 Logout
               </button>
-              <NormalRide setRideOptions={setRideOptions} />
+              <NormalRide
+                setRideOptions={setRideOptions}
+                currentLocation={currentLocation}
+                setCurrentLocation={setCurrentLocation}
+                destination={destination}
+                setDestination={setDestination}
+              />
             </div>
             <div className={styles.dashboardRight}>
               <LiveLocationMap />
             </div>
           </div>
           {/* RideResults centered below the two columns */}
-          {rideOptions && rideOptions.length > 0 && (
-            <div
-              style={{
-                width: "100%",
-                display: "flex",
-                justifyContent: "center",
-              }}
-            >
-              <RideResults options={rideOptions} />
-            </div>
-          )}
+          {rideOptions &&
+            rideOptions.length > 0 &&
+            currentLocation &&
+            destination && (
+              <div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <RideResults options={rideOptions} />
+              </div>
+            )}
         </div>
       )}
       {/* Outlet for account section, full width */}

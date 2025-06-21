@@ -1,17 +1,23 @@
-import { useState, useEffect, useRef } from "react";
+import { useRef } from "react";
 import axiosInstance from "./axiosInstance";
 import Loading from "./Loading";
 import styles from "./NormalRide.module.css";
 import fetchLatLonFromAddress from "../../utility/fetchLatLonFromAddress";
 
-const NormalRide = ({ setRideOptions, setCurrentLocation, setDestination }) => {
-  const [CurrentLocation, _setCurrentLocation] = useState("");
-  const [destination, _setDestination] = useState("");
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [suggestions, setSuggestions] = useState([]);
-  const [destinationSuggestions, setDestinationSuggestions] = useState([]);
-  const [focusedInput, setFocusedInput] = useState(null);
+const NormalRide = ({
+  setRideOptions,
+  currentLocation,
+  setCurrentLocation,
+  destination,
+  setDestination,
+}) => {
+  const [error, setError] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
+  const [suggestions, setSuggestions] = React.useState([]);
+  const [destinationSuggestions, setDestinationSuggestions] = React.useState(
+    []
+  );
+  const [focusedInput, setFocusedInput] = React.useState(null);
   const debounceRef = useRef();
   const destinationDebounceRef = useRef();
 
@@ -19,7 +25,7 @@ const NormalRide = ({ setRideOptions, setCurrentLocation, setDestination }) => {
     try {
       setLoading(true);
       setError("");
-      const currentLocCoords = await fetchLatLonFromAddress(CurrentLocation);
+      const currentLocCoords = await fetchLatLonFromAddress(currentLocation);
       const destCoords = await fetchLatLonFromAddress(destination);
       if (!currentLocCoords || !destCoords) {
         setError("Could not geocode one or both addresses.");
@@ -46,26 +52,17 @@ const NormalRide = ({ setRideOptions, setCurrentLocation, setDestination }) => {
       const response = await fetch(url);
       const data = await response.json();
       if (data.features && data.features.length > 0) {
-        _setCurrentLocation(
+        setCurrentLocation(
           data.features[0].properties.formatted ||
             data.features[0].properties.address_line1 ||
             data.features[0].properties.city ||
             "Address not found"
         );
-        if (setCurrentLocation)
-          setCurrentLocation(
-            data.features[0].properties.formatted ||
-              data.features[0].properties.address_line1 ||
-              data.features[0].properties.city ||
-              "Address not found"
-          );
       } else {
-        _setCurrentLocation("Address not found");
-        if (setCurrentLocation) setCurrentLocation("Address not found");
+        setCurrentLocation("Address not found");
       }
     } catch (err) {
-      _setCurrentLocation("Error fetching address");
-      if (setCurrentLocation) setCurrentLocation("Error fetching address");
+      setCurrentLocation("Error fetching address");
     } finally {
       setLoading(false);
     }
@@ -106,8 +103,7 @@ const NormalRide = ({ setRideOptions, setCurrentLocation, setDestination }) => {
 
   const handleInputChange = (e) => {
     const value = e.target.value;
-    _setCurrentLocation(value);
-    if (setCurrentLocation) setCurrentLocation(value);
+    setCurrentLocation(value);
     setSuggestions([]);
     setFocusedInput("current"); // Ensure suggestions show on typing
     if (debounceRef.current) clearTimeout(debounceRef.current);
@@ -118,8 +114,7 @@ const NormalRide = ({ setRideOptions, setCurrentLocation, setDestination }) => {
 
   const handleDestinationChange = (e) => {
     const value = e.target.value;
-    _setDestination(value);
-    if (setDestination) setDestination(value);
+    setDestination(value);
     setDestinationSuggestions([]);
     setFocusedInput("destination"); // Ensure suggestions show on typing
     if (destinationDebounceRef.current)
@@ -131,24 +126,22 @@ const NormalRide = ({ setRideOptions, setCurrentLocation, setDestination }) => {
 
   // Handle suggestion click
   const handleSuggestionClick = (suggestion) => {
-    const value =
+    setCurrentLocation(
       suggestion.properties.formatted ||
-      suggestion.properties.address_line1 ||
-      suggestion.properties.city ||
-      "";
-    _setCurrentLocation(value);
-    if (setCurrentLocation) setCurrentLocation(value);
+        suggestion.properties.address_line1 ||
+        suggestion.properties.city ||
+        ""
+    );
     setSuggestions([]);
   };
 
   const handleDestinationSuggestionClick = (suggestion) => {
-    const value =
+    setDestination(
       suggestion.properties.formatted ||
-      suggestion.properties.address_line1 ||
-      suggestion.properties.city ||
-      "";
-    _setDestination(value);
-    if (setDestination) setDestination(value);
+        suggestion.properties.address_line1 ||
+        suggestion.properties.city ||
+        ""
+    );
     setDestinationSuggestions([]);
   };
 
@@ -158,12 +151,12 @@ const NormalRide = ({ setRideOptions, setCurrentLocation, setDestination }) => {
         <input
           type="text"
           name="CurrentLocation"
-          value={CurrentLocation}
+          value={currentLocation}
           onChange={handleInputChange}
           onFocus={() => setFocusedInput("current")}
           onBlur={() => setTimeout(() => setFocusedInput(null), 150)}
           onClick={() => {
-            if (!CurrentLocation) {
+            if (!currentLocation) {
               handleCurrentLocation();
             }
           }}
@@ -177,7 +170,7 @@ const NormalRide = ({ setRideOptions, setCurrentLocation, setDestination }) => {
               <li
                 key={(s.properties.place_id || "") + "-" + idx}
                 className={styles.suggestionItem}
-                onMouseDown={() => handleSuggestionClick(s)} // changed from onClick to onMouseDown
+                onMouseDown={() => handleSuggestionClick(s)}
               >
                 {s.properties.formatted ||
                   s.properties.address_line1 ||
@@ -207,7 +200,7 @@ const NormalRide = ({ setRideOptions, setCurrentLocation, setDestination }) => {
                 <li
                   key={(s.properties.place_id || "") + "-" + idx}
                   className={styles.suggestionItem}
-                  onMouseDown={() => handleDestinationSuggestionClick(s)} // changed from onClick to onMouseDown
+                  onMouseDown={() => handleDestinationSuggestionClick(s)}
                 >
                   {s.properties.formatted ||
                     s.properties.address_line1 ||
