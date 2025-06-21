@@ -24,7 +24,7 @@ function Dashboard() {
       if (!currentUser) return;
       try {
         const res = await axiosInstance.get(
-          `/user/profile-status?firebaseUID=${currentUser.uid}`
+          `/api/user/profile-status?firebaseUID=${currentUser.uid}`
         );
         setProfileComplete(res.data.profileComplete);
       } catch {
@@ -66,7 +66,7 @@ function Dashboard() {
 
   async function handleProfileSubmit(profileData) {
     try {
-      await axiosInstance.put("/user/profile", profileData);
+      await axiosInstance.put("/api/user/profile", profileData);
       setProfileComplete(true);
     } catch (err) {
       alert("Failed to save profile. Try again.");

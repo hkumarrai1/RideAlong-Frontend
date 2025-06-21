@@ -8,6 +8,8 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
 }
 .title {
   font-size: 1.1rem;
@@ -20,6 +22,7 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+  width: 100%;
 }
 .inputGroup label {
   font-size: 0.97rem;
@@ -28,11 +31,14 @@
 }
 .inputGroup input,
 .inputGroup select {
-  padding: 8px 10px;
+  padding: 10px 12px;
   border-radius: 8px;
   border: 1px solid #b0bec5;
-  font-size: 0.97rem;
+  font-size: 1rem;
   background: #f9f9f9;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
 }
 .inputGroup input[readonly] {
   background: #eee;
@@ -45,17 +51,43 @@
   margin-bottom: 8px;
 }
 .submitBtn {
-  padding: 10px 0;
+  padding: 12px 0;
   border: none;
   border-radius: 8px;
   background: linear-gradient(90deg, #2193b0 0%, #6dd5ed 100%);
   color: #fff;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.05rem;
   cursor: pointer;
   margin-top: 8px;
   transition: background 0.2s;
+  width: 100%;
 }
 .submitBtn:hover {
   background: linear-gradient(90deg, #6dd5ed 0%, #2193b0 100%);
+}
+
+@media (max-width: 600px) {
+  .profileForm {
+    max-width: 98vw;
+    padding: 16px 2vw 12vw 2vw;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0 auto;
+    font-size: 0.97rem;
+  }
+  .inputGroup input,
+  .inputGroup select {
+    font-size: 0.97rem;
+    padding: 10px 8px;
+    border-radius: 7px;
+    min-width: 0;
+    width: 100%;
+  }
+  .submitBtn {
+    font-size: 1rem;
+    padding: 11px 0;
+    border-radius: 9px;
+    min-height: 36px;
+  }
 }
