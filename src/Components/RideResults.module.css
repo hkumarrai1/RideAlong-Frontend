@@ -115,11 +115,14 @@
     right: 0;
     border-radius: 0 0 14px 14px;
     box-shadow: 0 1px 4px rgba(33, 147, 176, 0.07);
-    padding: 8px 1vw 6px 1vw;
+    padding: 8px 1vw 38px 1vw; /* increased bottom padding for swipe area */
     min-width: 0;
     box-sizing: border-box;
     z-index: 100;
     position: relative;
+    padding-bottom: calc(
+      38px + env(safe-area-inset-bottom, 0px)
+    ); /* iOS safe area */
   }
   .rideList {
     gap: 8px;
